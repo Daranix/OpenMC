@@ -1,5 +1,5 @@
 {
-  "name": "openmc-launcher",
+  "name": "openmc",
   "version": "0.0.1",
   "description": "Open source Minecraft launcher and mod manager.",
   "license": "MIT",

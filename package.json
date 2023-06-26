@@ -1,5 +1,5 @@
 {
-  "name": "openmc-launcher",
+  "name": "openmc",
   "version": "0.0.3",
   "description": "An open source Minecraft launcher and mod manager",
   "homepage": "https://github.com/sammwyy/openmc#readme",
@@ -13,7 +13,7 @@
   "license": "MIT",
   "author": {
     "name": "Sammwy",
-    "url": "https://sammwy.com/openmc-launcher"
+    "url": "https://sammwy.com/openmc"
   },
   "main": "./src/main/main.ts",
   "scripts": {
@@ -239,9 +239,7 @@
       "./assets/**"
     ],
     "publish": {
-      "provider": "github",
-      "owner": "sammwyy",
-      "repo": "openmc-launcher"
+      "provider": "github"
     }
   },
   "collective": {
