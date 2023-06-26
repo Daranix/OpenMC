@@ -1,0 +1,89 @@
+{
+    "productName": "OpenMC",
+    "appId": "com.sammwy.OpenMC",
+    "asar": true,
+    "asarUnpack": "**\\*.{node,dll}",
+    "files": [
+        "dist",
+        "node_modules",
+        "package.json"
+    ],
+    "artifactName": "${productName}-${arch}-${version}.${ext}",
+    "afterSign": "env/scripts/notarize.js",
+    "mac": {
+        "target": [
+            {
+                "target": "zip",
+                "arch": [
+                    "x64",
+                    "arm64"
+                ]
+            },
+            {
+                "target": "dmg",
+                "arch": [
+                    "x64",
+                    "arm64",
+                    "universal"
+                ]
+            }
+        ],
+        "type": "distribution",
+        "hardenedRuntime": true,
+        "entitlements": "assets/entitlements.mac.plist",
+        "entitlementsInherit": "assets/entitlements.mac.plist",
+        "gatekeeperAssess": false
+    },
+    "dmg": {
+        "contents": [
+            {
+                "x": 130,
+                "y": 220
+            },
+            {
+                "x": 410,
+                "y": 220,
+                "type": "link",
+                "path": "/Applications"
+            }
+        ]
+    },
+    "win": {
+        "target": [
+            "nsis",
+            "portable"
+        ],
+        "arch": [
+            "x64"
+        ]
+    },
+    "linux": {
+        "target": [
+            "AppImage"
+        ],
+        "category": "Development"
+    },
+    "directories": {
+        "app": "release/app",
+        "buildResources": "assets",
+        "output": "release/build"
+    },
+    "extraResources": [
+        "./assets/**"
+    ],
+    "publish": {
+        "provider": "github"
+    },
+    "nsis": {
+        "artifactName": "${productName}-${version}-windows-installer.${ext}",
+        "oneClick": false,
+        "perMachine": true,
+        "allowToChangeInstallationDirectory": true
+    },
+    "msi": {
+        "artifactName": "${productName}-${version}-windows.${ext}"
+    },
+    "portable": {
+        "artifactName": "${productName}-${version}-windows-no-installer.${ext}"
+    }
+}
