@@ -2,13 +2,13 @@
   "name": "openmc",
   "version": "0.0.3",
   "description": "An open source Minecraft launcher and mod manager",
-  "homepage": "https://github.com/sammwyy/openmc#readme",
+  "homepage": "https://github.com/daranix/openmc#readme",
   "bugs": {
-    "url": "https://github.com/sammwyy/openmc/issues"
+    "url": "https://github.com/daranix/openmc/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sammwyy/openmc.git"
+    "url": "git+https://github.com/daranix/openmc.git"
   },
   "license": "MIT",
   "author": {
@@ -30,7 +30,7 @@
     "start:preload": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack --config ./env/configs/webpack.config.preload.dev.ts",
     "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./env/configs/webpack.config.renderer.dev.ts",
     "test": "jest",
-    "release": "electron-builder --config electron-builder-cfg.json --publish always"
+    "release": "electron-builder -- --publish always --win --mac --linux"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -179,68 +179,6 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.0",
     "webpack-merge": "^5.8.0"
-  },
-  "build": {
-    "productName": "OpenMC",
-    "appId": "com.sammwy.OpenMC",
-    "asar": true,
-    "asarUnpack": "**\\*.{node,dll}",
-    "files": [
-      "dist",
-      "node_modules",
-      "package.json"
-    ],
-    "afterSign": "env/scripts/notarize.js",
-    "mac": {
-      "target": {
-        "target": "default",
-        "arch": [
-          "arm64",
-          "x64"
-        ]
-      },
-      "type": "distribution",
-      "hardenedRuntime": true,
-      "entitlements": "assets/entitlements.mac.plist",
-      "entitlementsInherit": "assets/entitlements.mac.plist",
-      "gatekeeperAssess": false
-    },
-    "dmg": {
-      "contents": [
-        {
-          "x": 130,
-          "y": 220
-        },
-        {
-          "x": 410,
-          "y": 220,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ]
-    },
-    "win": {
-      "target": [
-        "nsis"
-      ]
-    },
-    "linux": {
-      "target": [
-        "AppImage"
-      ],
-      "category": "Development"
-    },
-    "directories": {
-      "app": "release/app",
-      "buildResources": "assets",
-      "output": "release/build"
-    },
-    "extraResources": [
-      "./assets/**"
-    ],
-    "publish": {
-      "provider": "github"
-    }
   },
   "collective": {
     "url": "https://patreon.com/sammwy"
