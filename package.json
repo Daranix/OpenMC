@@ -30,7 +30,7 @@
     "start:preload": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack --config ./env/configs/webpack.config.preload.dev.ts",
     "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./env/configs/webpack.config.renderer.dev.ts",
     "test": "jest",
-    "release": "electron-builder --config ./electron-builder-cfg.json --publish always --win --mac --linux"
+    "release": "electron-builder --config ./electron-builder-cfg.json --publish always"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
