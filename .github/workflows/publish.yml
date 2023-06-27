@@ -38,6 +38,7 @@ jobs:
 
       - name: Install and build
         run: |
+          sudo snap install snapcraft --classic
           npm install
           npm run postinstall
           npm run build
